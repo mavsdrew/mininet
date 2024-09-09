@@ -1,6 +1,6 @@
 # Mininet
 
-O **Mininet** é uma ferramenta poderosa para a emulação de redes e é amplamente utilizada em pesquisas e experimentos com **Redes Definidas por Software (SDN)**.
+O **Mininet** é uma ferramenta poderosa para a emulação de redes e é amplamente utilizada em pesquisas e experimentos com **Redes Definidas por Software (SDN)**. Ele permite criar redes virtuais completas em um único computador, simulando hosts, switches, controladores e links de maneira eficiente.
 
 Este repositório contém um tutorial detalhado para a instalação do **Mininet** em uma máquina virtual (VM) rodando **[Ubuntu](https://ubuntu.com/)** no **[VirtualBox](https://www.virtualbox.org/)**.
 
@@ -12,7 +12,7 @@ Nesta seção, descreveremos como configurar um ambiente de virtualização usan
 
 ## Download
 
-Certifique-se de realizar o download dos seguintes itens (versões relacionadas) antes de prosseguir:
+Certifique-se de realizar o download dos seguintes itens (com as versões indicadas) antes de prosseguir:
 
 - Microsoft Visual Studio C++: **[Download Microsoft Visual Studio C++ 2015-2022 Redistributable (x64) - 14.40.33810](https://aka.ms/vs/17/release/vc_redist.x64.exe)**
 - VirtualBox: **[Download VirtualBox 7.0.20](https://download.virtualbox.org/virtualbox/7.0.20/VirtualBox-7.0.20-163906-Win.exe)**
@@ -29,10 +29,8 @@ Certifique-se de realizar o download dos seguintes itens (versões relacionadas)
 
 - Realize a instalação padrão do VirtualBox.
 - Instale o Pacote de Extensão através do VirtualBox:
+    - No VirtualBox, vá em **Arquivo -> Ferramentas -> Gerenciador de Pacotes de Extensão** e selecione o pacote baixado para instalar.
 
-    ```bash
-    Arquivo -> Ferramentas -> Gerenciador de Pacotes de Extensão: Instalar.
-    ```
 
 ### **Ubuntu Desktop 22.04 LTS:**
     
@@ -43,7 +41,7 @@ Certifique-se de realizar o download dos seguintes itens (versões relacionadas)
 - Memória RAM da VM: Pelo menos `2 GB`.
 - Disco da VM: `10 GB ou mais de armazenamento.`
 
-#### Configuração adotada:
+#### Configuração adotada (recomendada):
 
 - Criação de uma nova VM:
     - **Nome**: `mininet`
@@ -53,75 +51,93 @@ Certifique-se de realizar o download dos seguintes itens (versões relacionadas)
     - **Processador (Núcleos)**: `2 CPU`
     - **Disco**: 50 GB
 
-- Configuração da VM:
+- Configuração adicional da VM:
     - **Arrastar e Soltar**: `Desabilitado`
     - **Aceleração 3D**: `Habilitado`
     - **Rede**: `NAT`
-    
+
+---
+
 #### Instalação do Ubuntu:
-- **Idioma**: `Português do Brasil`
-- **Layout do Teclado**: `Portuguese (Brazil)`
-- **Tipo de Instalação**: `Instalação Normal` - marque a opção para baixar atualizações durante a instalação e instalar software de terceiros (como drivers gráficos).
-- **Particionamento do Disco**: `Apagar disco e reinstalar o Ubuntu`
-- **Fuso Horário**: `São Paulo`
-- **Criar um Usuário**: Insira seus dados.
-- **Iniciar a instalação**: Quando a instalação estiver concluída, o instalador solicitará que você reinicie o sistema.
+- **Idioma**: `Português do Brasil`.
+- **Layout do Teclado**: `Portuguese (Brazil)`.
+- **Tipo de Instalação**: Selecione a `Instalação Normal` e marque a opção para baixar atualizações durante a instalação e instalar software de terceiros (como drivers gráficos).
+- **Particionamento do Disco**: Escolha a opção `Apagar disco e reinstalar o Ubuntu`.
+- **Fuso Horário**: Defina como `São Paulo`.
+- **Criar um Usuário**: Insira suas informações de usuário e senha.
+- **Iniciar a instalação**: Ao finalizar a instalação, o instalador solicitará que você reinicie o sistema.
+
+---
 
 #### Instalação do CD dos Adicionais para Convidado:
-- A instalação permitirá:
+- A instalação dos **Adicionais para Convidado** permitirá:
     - O redimensionamento automático da tela.
     - O compartilhamento de arquivos entre o sistema host e a VM.
     - Melhor suporte para aceleração gráfica.
 
-- Para isso, instale algumas dependências e demais procedimentos através da execução de comandos pelo terminal (`Ctrl + Alt + T`):
+##### Passo 1: Instalar Dependências
 
-    ```bash
-    sudo apt install build-essential dkms linux-headers-$(uname -r)
-    ```
+No terminal (`Ctrl + Alt + T`), instale as dependências necessárias para compilar os módulos de kernel:
 
-- **Executar Script**:
+```bash
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+```
 
-    ```bash
-    cd /media/username
-    sudo ./VBox_GAs_7.0.20/VBoxLinuxAdditions.run
-    ```
+##### Passo 2: Executar o Script de Instalação
 
-- **Reiniciar**:
+1. Monte o CD dos Adicionais para Convidado em sua VM no VirtualBox (vá em **Dispositivos > Inserir Imagem de CD dos Adicionais para Convidado**).
 
-    ```bash
-    sudo reboot
-    ```
+2. Em seguida, no terminal, execute:
 
-- **Atualização do Ubuntu**: Após a instalação, atualize o sistema.
+```bash
+cd /media/username
+sudo ./VBox_GAs_7.0.20/VBoxLinuxAdditions.run
+```
+Nota: Substitua `username` pelo nome de usuário da sua máquina.
 
-    ```bash
-    sudo apt update
-    sudo apt upgrade -y
-    ```
+##### Passo 3: Reiniciar a VM
+
+Reinicie o sistema para aplicar as mudanças:
+```bash
+sudo reboot
+```
+
+---
+
+#### Atualização do Ubuntu
+
+Após a instalação, é recomendável atualizar o sistema para garantir que você tenha as últimas correções de segurança e melhorias:
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
 
 ## Mininet - Preparando o ambiente
 
-Instale pacotes essenciais para a compilação e o funcionamento do Mininet:
+Antes de instalar o Mininet, é necessário garantir que seu sistema esteja pronto, instalando alguns pacotes essenciais para a compilação e o funcionamento do Mininet. No terminal, execute o seguinte comando:
 
-    ```bash
-    sudo apt install -y git build-essential
-    ```
+```bash
+sudo apt install -y git build-essential
+```
+
+Esses pacotes incluem o `git` para clonar o repositório do Mininet, além de ferramentas de compilação (`build-essential`).
 
 ## Mininet - Instalação
 
-1. Clone o repositório oficial do Mininet:
+1. **Clone o repositório oficial do Mininet**: Execute o comando abaixo para clonar o repositório do Mininet no GitHub:
 
     ```bash
     git clone https://github.com/mininet/mininet
     ```
 
-2. Entre no diretório do Mininet clonado:
+2. **Entre no diretório do Mininet clonado**: Navegue até o diretório clonado com o seguinte comando:
 
     ```bash
     cd mininet
     ```
 
-3. Execute o script de instalação completa (o parâmetro `-a` garante que todos os pacotes recomendados sejam instalados):
+3. **Execute o script de instalação completa**: O script de instalação completa vai configurar o Mininet com todos os pacotes necessários. Execute o comando abaixo:
 
     ```bash
     sudo ./util/install.sh -a
@@ -129,16 +145,21 @@ Instale pacotes essenciais para a compilação e o funcionamento do Mininet:
 
 ## Mininet - Verificação da Instalação
 
-Após a instalação, verifique se o Mininet está funcionando corretamente com o seguinte comando:
+Após a instalação, é importante verificar se o Mininet foi instalado corretamente e está funcionando. Para isso, execute o seguinte comando para rodar um teste básico:
 
-bash
-Copiar código
+```bash
 sudo mn --test pingall
+```
+
+Esse comando cria uma rede simples e verifica se os hosts conseguem se comunicar via ping. O resultado esperado é algo semelhante a isto:
+
 O teste cria uma rede simples e verifica se os hosts conseguem se comunicar via ping. O resultado esperado é:
 
-bash
-Copiar código
+```bash
 *** Ping: testing ping reachability
 h1 -> h2
 h2 -> h1
 *** Results: 0% dropped (2/2 received)
+```
+
+Se esse resultado for obtido, significa que o Mininet está funcionando corretamente e sua instalação foi bem-sucedida.
