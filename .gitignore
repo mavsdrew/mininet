@@ -1,0 +1,22 @@
+# Ignorar arquivos temporários do sistema
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignorar arquivos de configurações locais
+.vscode/
+.idea/
+*.bak
+*.backup
+
+# Ignorar arquivos de diretórios comuns de cache
+.cache/
+*.pid
+*.seed
+
+# Ignorar arquivos de snapshots ou imagens de VM (se aplicável)
+*.ova
+*.vdi
+*.vmdk
+*.iso
