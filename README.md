@@ -94,7 +94,7 @@ sudo apt install build-essential dkms linux-headers-$(uname -r)
 cd /media/username
 sudo ./VBox_GAs_7.0.20/VBoxLinuxAdditions.run
 ```
-Nota: Substitua `username` pelo nome de usuário da sua máquina.
+_Nota: Substitua `username` pelo nome de usuário da sua máquina._
 
 ##### Passo 3: Reiniciar a VM
 
@@ -114,7 +114,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-## Mininet - Preparando o ambiente
+# Mininet - Preparando o ambiente
 
 Antes de instalar o Mininet, é necessário garantir que seu sistema esteja pronto, instalando alguns pacotes essenciais para a compilação e o funcionamento do Mininet. No terminal, execute o seguinte comando:
 
@@ -124,7 +124,7 @@ sudo apt install -y git build-essential
 
 Esses pacotes incluem o `git` para clonar o repositório do Mininet, além de ferramentas de compilação (`build-essential`).
 
-## Mininet - Instalação
+# Mininet - Instalação
 
 1. **Instale o Git**: Execute o comando abaixo para instalar o Git e validar a sua versão:
 
@@ -151,7 +151,7 @@ Esses pacotes incluem o `git` para clonar o repositório do Mininet, além de fe
     sudo ./util/install.sh -a
     ```
 
-## Mininet - Verificação da Instalação
+# Mininet - Verificação da Instalação
 
 Após a instalação, é importante verificar se o Mininet foi instalado corretamente e está funcionando. Para isso, execute o seguinte comando para rodar um teste básico:
 
