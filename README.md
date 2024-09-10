@@ -52,6 +52,7 @@ Certifique-se de realizar o download dos seguintes itens (com as versões indica
     - **Disco**: 50 GB
 
 - Configuração adicional da VM:
+    - **Área de Tranferência Compartilhada**: `Hospedeiro para Convidado`
     - **Arrastar e Soltar**: `Desabilitado`
     - **Aceleração 3D**: `Habilitado`
     - **Rede**: `NAT`
@@ -125,19 +126,26 @@ Esses pacotes incluem o `git` para clonar o repositório do Mininet, além de fe
 
 ## Mininet - Instalação
 
-1. **Clone o repositório oficial do Mininet**: Execute o comando abaixo para clonar o repositório do Mininet no GitHub:
+1. **Instale o Git**: Execute o comando abaixo para instalar o Git e validar a sua versão:
+
+    ```bash
+    sudo apt install git -y
+    git --version
+    ```
+
+2. **Clone o repositório oficial do Mininet**: Execute o comando abaixo para clonar o repositório do Mininet no GitHub:
 
     ```bash
     git clone https://github.com/mininet/mininet
     ```
 
-2. **Entre no diretório do Mininet clonado**: Navegue até o diretório clonado com o seguinte comando:
+3. **Entre no diretório do Mininet clonado**: Navegue até o diretório clonado com o seguinte comando:
 
     ```bash
     cd mininet
     ```
 
-3. **Execute o script de instalação completa**: O script de instalação completa vai configurar o Mininet com todos os pacotes necessários. Execute o comando abaixo:
+4. **Execute o script de instalação completa**: O script de instalação completa vai configurar o Mininet com todos os pacotes necessários. Execute o comando abaixo:
 
     ```bash
     sudo ./util/install.sh -a
