@@ -3,15 +3,16 @@
 Ir para a [Home](https://github.com/mavsdrew/mininet) do projeto.
 
 - [Download](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#download)
-- [Microsoft Visual Studio C++](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#microsoft-visual-studio-C++)
-- [VirtualBox e Pacote de Extensão](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#virtualbox-e-pacote-de-extensão)
-- [Ubuntu Desktop 22.04 LTS](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#ubuntu-desktop-22.04-lts)
-    - [Configuração mínima](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configuração-mínima)
-    - [Configuração adotada (recomendada)](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configuração-adotada-(recomendada))
-    - [Instalação Ubuntu](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configuração-adotada-(recomendada))
-    - [Instalação do CD dos Adicionais para Convidado](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configuração-adotada-(recomendada))
-    - [Atualização do Ubuntu](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configuração-adotada-(recomendada))
-    
+- [Instalação e Configuração](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#instala%C3%A7%C3%A3o-e-configura%C3%A7%C3%A3o)
+    - [Microsoft Visual Studio C++](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#microsoft-visual-studio-c)
+    - [VirtualBox e Pacote de Extensão](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#virtualbox-e-pacote-de-extens%C3%A3o)
+    - [Ubuntu Desktop 22.04 LTS](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#ubuntu-desktop-2204-lts)
+        - [Configuração mínima](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configura%C3%A7%C3%A3o-m%C3%ADnima)
+        - [Configuração adotada (recomendada)](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#configura%C3%A7%C3%A3o-adotada-recomendada)
+        - [Instalação Ubuntu](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#instala%C3%A7%C3%A3o-do-ubuntu)
+        - [Instalação do CD dos Adicionais para Convidado](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#instala%C3%A7%C3%A3o-do-cd-dos-adicionais-para-convidado)
+        - [Atualização do Ubuntu](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md#atualiza%C3%A7%C3%A3o-do-ubuntu)
+
 Nesta seção, descreveremos como configurar um ambiente de virtualização usando o [VirtualBox](https://www.virtualbox.org/) e a imagem do [Ubuntu Desktop](https://ubuntu.com/).
 
 ## Download

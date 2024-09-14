@@ -1,3 +1,12 @@
+# Mininet
+
+Ir para a [Home](https://github.com/mavsdrew/mininet) do projeto.
+
+- [Preparando o ambiente](https://github.com/mavsdrew/mininet/blob/main/docs/mininet.md#preparando-o-ambiente)
+- [Instalação](https://github.com/mavsdrew/mininet/blob/main/docs/mininet.md#instala%C3%A7%C3%A3o)
+- [Verificação da Instalação](https://github.com/mavsdrew/mininet/blob/main/docs/mininet.md#verifica%C3%A7%C3%A3o-da-instala%C3%A7%C3%A3o)
+
+Nesta seção, descreveremos como preparar o ambiente, instalar e verificar a instalação do Mininet.
 
 # Preparando o ambiente
 
