@@ -6,11 +6,4 @@ Este repositório contém um tutorial detalhado para a instalação do **Mininet
 
 Aqui você encontrará um passo a passo com todos os comandos necessários para realizar a instalação e verificação de funcionamento do **Mininet**.
 
-##### [ [Voltar ao topo](https://github.com/mavsdrew/mininet) ]
-
-## Documentação do Projeto
-
-- [Configuração do Ambiente com VirtualBox e Ubuntu](https://github.com/mavsdrew/mininet/blob/main/docs/environment.md)
-- [Mininet](https://github.com/mavsdrew/mininet/blob/main/docs/mininet.md)
-
-##### [ [Voltar ao topo](https://github.com/mavsdrew/mininet) ]
+Demais informações, acesse a [Documentação do Projeto (Wiki)](https://github.com/mavsdrew/mininet/wiki).
