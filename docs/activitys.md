@@ -91,8 +91,10 @@ Figura 01.
     - Abra uma nova janela do `Terminal` para que esteja fora da interface do Mininet. Crie as seguintes regras:
         ```bash
         sudo ovs-ofctl add-flow s1 in_port=1,actions=output:2
-        sudo ovs-ofctl add-flow s1 in_port=2,actions=output:1
         ````
+        ```bash
+        sudo ovs-ofctl add-flow s1 in_port=2,actions=output:1
+        ```
     
     - Explicação das regras:
         - `ovs-ofctl`: Comando para manipular switches Open vSwitch.
