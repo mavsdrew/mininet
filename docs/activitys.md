@@ -199,12 +199,32 @@ Figura 01.
     - Reaplique as regras de encaminhamento para garantir a comunicação entre os hosts:
         ```bash
         sudo ovs-ofctl add-flow s1 priority=100,in_port=1,actions=output:2
+        ```
+        ```bash
         sudo ovs-ofctl add-flow s1 priority=100,in_port=2,actions=output:1
         ```
 
 
 7. Verifique, usando o software `wireshark`, que o switch está, de fato, alterando os pacotes.
 
+    - Na captura do Wireshark, podemos ver que o endereço MAC de destino foi modificado corretamente em alguns pacotes ICMP reply.
+    
+    - Frame 4 na captura (`Figura 09.png`) mostra que o endereço MAC de destino foi alterado para `aa:bb:cc:dd:ee:ff` conforme a regra aplicada. Isso indica que a regra está sendo executada para modificar o destino dos pacotes ICMP reply que entram pela porta `s1-eth2` e são enviados para `s1-eth1`.
+
+    - No terminal, vemos que a regra de modificação do endereço MAC de destino foi aplicada e processou pacotes:
+    
+    - A regra `in_port=s1-eth2, icmp, actions=mod_dl_dst:aa:bb:cc:dd:ee:ff, output:1 processou 4 pacotes (n_packets=4)`. Isso confirma que a modificação do endereço MAC de destino está sendo aplicada conforme esperado.
+    
+    - As regras de encaminhamento padrão (`in_port=1, output=2` e `in_port=2, output=1`) também processaram pacotes, garantindo a comunicação básica entre `h1` e `h2`.
+
+    - Conclusão:
+        - A regra de modificação do endereço MAC de destino foi aplicada com sucesso.
+        - No Wireshark, você pode ver pacotes ICMP reply com o endereço MAC de destino alterado para `aa:bb:cc:dd:ee:ff`.
+        - As regras de encaminhamento funcionaram corretamente e os pacotes foram processados conforme esperado.
+
+    Figura 08.  
+    Figura 09.  
+    Figura 10.  
 
 8. O comando `ping` continua funcionando normalmente?
 
