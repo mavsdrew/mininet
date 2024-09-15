@@ -4,6 +4,6 @@ O **Mininet** é uma ferramenta poderosa para a emulação de redes e é amplame
 
 Este repositório contém um tutorial detalhado para a instalação do **Mininet** em uma máquina virtual (VM) rodando [Ubuntu](https://ubuntu.com/) no [VirtualBox](https://www.virtualbox.org/).
 
-Aqui você encontrará um passo a passo com todos os comandos necessários para realizar a instalação e verificação de funcionamento do **Mininet**.
+Aqui você encontrará um passo a passo com todos os comandos necessários para realizar a instalação e verificar o funcionamento do **Mininet**.
 
-Demais informações, acesse a [Documentação do Projeto (Wiki)](https://github.com/mavsdrew/mininet/wiki).
+Para mais informações, acesse a [documentação do repositório (Wiki)](https://github.com/mavsdrew/mininet/wiki).
