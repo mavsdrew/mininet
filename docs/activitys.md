@@ -170,9 +170,42 @@ Figura 01.
 
     Figura 05.
     Figura 06.
+    Figura 07.
 
+    - Interpretação:
+        - A regra de modificação do endereço MAC está sendo aplicada a alguns pacotes ICMP que entraram pela porta s1-eth2 e foram encaminhados para s1-eth1 com o endereço MAC modificado.
+        - Isso pode estar relacionado ao fato de que a maior parte do tráfego está sendo tratada pela regra de modificação de endereço MAC.
+
+     - Conclusão:
+        - A regra de modificação está funcionando e sendo aplicada corretamente aos pacotes ICMP reply que entram pela porta s1-eth2.
+        - A pequena diferença entre o número de pacotes processados pelas regras de encaminhamento pode estar ocorrendo devido à priorização da regra de modificação, que está capturando a maior parte dos pacotes.
 
 5. O comando `ping` continua funcionando normalmente?
+
+    - O `ping` continuará funcionando normalmente porque a modificação do endereço MAC de origem não interfere na lógica de roteamento do ICMP reply, que depende dos endereços IP.
+
 6. Apague a regra criada anteriormente. Crie, agora, uma regra que altere o endereço MAC de destino dos pacotes de resposta.
+
+    - Remova as regras existentes:
+        ```bash
+        sudo ovs-ofctl del-flows s1
+        ```
+    
+    - Criar a nova regra para alterar o endereço MAC de destino:
+        ```bash
+        sudo ovs-ofctl add-flow s1 in_port=2,icmp,actions=mod_dl_dst:aa:bb:cc:dd:ee:ff,output:1
+        ```
+
+    - Reaplique as regras de encaminhamento para garantir a comunicação entre os hosts:
+        ```bash
+        sudo ovs-ofctl add-flow s1 priority=100,in_port=1,actions=output:2
+        sudo ovs-ofctl add-flow s1 priority=100,in_port=2,actions=output:1
+        ```
+
+
 7. Verifique, usando o software `wireshark`, que o switch está, de fato, alterando os pacotes.
+
+
 8. O comando `ping` continua funcionando normalmente?
+
+    - O ping deve parar de funcionar com essa modificação no endereço MAC de destino, porque o host `h1` não reconhece o pacote de resposta com um endereço MAC de destino desconhecido, o que impede a conclusão da comunicação.
