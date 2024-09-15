@@ -150,8 +150,24 @@ Figura 01.
     
     - Reinicie o sistema.
 
+    - Caso tenha problemas, realize os seguintes passos. Remova as regras existentes:
+        ```bash
+        sudo ovs-ofctl del-flows s1
+        ```
     
+    - Adicione a regra de modificação de endereço MAC para pacotes que entram pela porta 2 (interface s1-eth2):
+        ```bash
+        sudo ovs-ofctl add-flow s1 priority=32768,in_port=2,icmp,actions=mod_dl_src:aa:bb:cc:dd:ee:ff,output:1
+        ```
 
+    - Reaplique as regras de encaminhamento para garantir a comunicação entre os hosts:
+        ```bash
+        sudo ovs-ofctl add-flow s1 priority=100,in_port=1,actions=output:2
+        sudo ovs-ofctl add-flow s1 priority=100,in_port=2,actions=output:1
+        ```
+
+    Figura 05.
+    Figura 06.
 
 
 5. O comando `ping` continua funcionando normalmente?
