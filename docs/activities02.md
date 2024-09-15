@@ -69,7 +69,6 @@ mn --topo=tree,depth=3,fanout=2 --controller=default
         sudo ovs-ofctl add-flow s5 in_port=2,actions=output:1  # De h3 para s2
         sudo ovs-ofctl add-flow s5 in_port=1,actions=output:3  # De s2 para h4
         sudo ovs-ofctl add-flow s5 in_port=3,actions=output:1  # De h4 para s2
-
         ```
 
     6. Regras para o Switch `s6` (Switch de Nível Folha): O switch `s6` conecta `s3` aos hosts `h5` e `h6`.
@@ -89,6 +88,37 @@ mn --topo=tree,depth=3,fanout=2 --controller=default
         sudo ovs-ofctl add-flow s7 in_port=1,actions=output:3  # De s3 para h8
         sudo ovs-ofctl add-flow s7 in_port=3,actions=output:1  # De h8 para s3
         ```
+
+    - Todas as regras de encaminhamento:
+        ```bash
+        sudo ovs-ofctl add-flow s1 in_port=1,actions=output:2  # De s2 para s3
+        sudo ovs-ofctl add-flow s1 in_port=2,actions=output:1  # De s3 para s2
+        sudo ovs-ofctl add-flow s2 in_port=1,actions=output:2  # De s1 para s4
+        sudo ovs-ofctl add-flow s2 in_port=2,actions=output:1  # De s4 para s1
+        sudo ovs-ofctl add-flow s2 in_port=1,actions=output:3  # De s1 para s5
+        sudo ovs-ofctl add-flow s2 in_port=3,actions=output:1  # De s5 para s1
+        sudo ovs-ofctl add-flow s3 in_port=1,actions=output:2  # De s1 para s6
+        sudo ovs-ofctl add-flow s3 in_port=2,actions=output:1  # De s6 para s1
+        sudo ovs-ofctl add-flow s3 in_port=1,actions=output:3  # De s1 para s7
+        sudo ovs-ofctl add-flow s3 in_port=3,actions=output:1  # De s7 para s1
+        sudo ovs-ofctl add-flow s4 in_port=1,actions=output:2  # De s2 para h1
+        sudo ovs-ofctl add-flow s4 in_port=2,actions=output:1  # De h1 para s2
+        sudo ovs-ofctl add-flow s4 in_port=1,actions=output:3  # De s2 para h2
+        sudo ovs-ofctl add-flow s4 in_port=3,actions=output:1  # De h2 para s2
+        sudo ovs-ofctl add-flow s5 in_port=1,actions=output:2  # De s2 para h3
+        sudo ovs-ofctl add-flow s5 in_port=2,actions=output:1  # De h3 para s2
+        sudo ovs-ofctl add-flow s5 in_port=1,actions=output:3  # De s2 para h4
+        sudo ovs-ofctl add-flow s5 in_port=3,actions=output:1  # De h4 para s2
+        sudo ovs-ofctl add-flow s6 in_port=1,actions=output:2  # De s3 para h5
+        sudo ovs-ofctl add-flow s6 in_port=2,actions=output:1  # De h5 para s3
+        sudo ovs-ofctl add-flow s6 in_port=1,actions=output:3  # De s3 para h6
+        sudo ovs-ofctl add-flow s6 in_port=3,actions=output:1  # De h6 para s3
+        sudo ovs-ofctl add-flow s7 in_port=1,actions=output:2  # De s3 para h7
+        sudo ovs-ofctl add-flow s7 in_port=2,actions=output:1  # De h7 para s3
+        sudo ovs-ofctl add-flow s7 in_port=1,actions=output:3  # De s3 para h8
+        sudo ovs-ofctl add-flow s7 in_port=3,actions=output:1  # De h8 para s3
+        ```
+
 
 2. Execute, por no mínimo 10 segundos, o comando iperf entre dois host conectados a diferentes dispositivos de encaminhamento
     - Em um dos host execute `”iperf -s”` (host servidor). Escolhido o `h1` para executar o comando:
